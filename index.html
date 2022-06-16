@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <py-env>
+    - numpy
+    - matplotlib
+    - Phidget22
+    - BeautifulSoup4
+    - requests
+  </py-env>
+  <title>Pyscript</title>
+</head>
+
+<body>
+  <h1>Matplotlib</h1>
+  <div id="lineplot"></div>
+  <py-script output="lineplot">
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots()
+
+    year_1 = [2016, 2017, 2018, 2019, 2020, 2021]
+    population_1 = [42, 43, 45, 47, 48, 50]
+
+    year_2 = [2016, 2017, 2018, 2019, 2020, 2021]
+    population_2 = [43, 43, 44, 44, 45, 45]
+
+    plt.plot(year_1, population_1, marker='o', linestyle='--', color='g', label='Country 1')
+    plt.plot(year_2, population_2, marker='d', linestyle='-', color='r', label='Country 2')
+
+    plt.xlabel('Year')
+    plt.ylabel('Population (M)')
+    plt.title('Year vs Population')
+    plt.legend(loc='lower right')
+
+    fig
+  </py-script>
+
+  <h4>Interactive Repl</h4>
+  <py-repl id="repl" auto-generate="true">
+
+  </py-repl>
+  <div id="prices"></div>
+  <py-script output="prices">
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots()
+
+
+    x_axis = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    y_axis = [5, 16, 34, 56, 32, 56, 32, 12, 76, 89]
+
+    plt.title("Prices over 10 years")
+    plt.scatter(x_axis, y_axis, color='darkblue', marker='x', label="item 1")
+
+    plt.xlabel("Time (years)")
+    plt.ylabel("Price (dollars)")
+
+    plt.grid(True)
+    plt.legend()
+
+    <!-- plt.show() -->
+
+    fig
+
+  </py-script>
+
+  <div id="bar"></div>
+  <py-script output="bar">
+    from matplotlib import pyplot as plt
+    from matplotlib import style
+
+    style.use('ggplot')
+
+    x = [0, 1, 2, 3, 4, 5]
+    y = [46, 38, 29, 22, 13, 11]
+
+    fig, ax = plt.subplots()
+
+    ax.bar(x, y, align='center')
+
+    ax.set_title('Olympic Gold medals in London')
+    ax.set_ylabel('Gold medals')
+    ax.set_xlabel('Countries')
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(("USA", "China", "UK", "Russia",
+    "South Korea", "Germany"))
+
+    fig
+    plt.show()
+
+
+
+  </py-script>
+
+
+
+</body>
+
+</html>
